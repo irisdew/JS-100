@@ -9,8 +9,8 @@ function PlanetName(kor) {
   //     PlanetKor.forEach((el, i) => {
   //       if (el === kor) {
   //         return i;
-  //         // [ERROR] forEach 안에서 return하면  undefined!
-  //         // https://discuss.codecademy.com/t/why-does-foreach-return-undefined/438369 (Why does .forEach() always return undefined?)
+  //         // [ERROR] forEach 안에서 return하면 언제나 undefined!
+  //         // [Why does .forEach() always return undefined?] https://discuss.codecademy.com/t/why-does-foreach-return-undefined/438369
   //       }
   //     });
   //   } else {
@@ -27,3 +27,18 @@ function PlanetName(kor) {
 
 console.log(PlanetName("지구"));
 console.log(PlanetName("깐따삐아"));
+
+// forEach()의 단점 : break를 사용하지 못한다. (모두 다 순회해야함), return의 값이 항상 undefined이다.
+// 배열을 순회할 때 break;를 사용하고 싶다면 for문을 사용해야한다.
+// return값을 얻고 싶다면, map(새로운 배열을 return), filter(조건에 맞는 요소만 포함된 새로운 배열을 return)를 사용하는 것이 좋다.
+
+// 정확한 행성이름을 입력한다고 했을 떄, indexOf()로도 풀어보기
+function PlanetName2(kor) {
+  const PlanetKor = ["수성", "금성", "지구", "화성", "목성", "토성", "천왕성", "해왕성"];
+  const PlanetEng = ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"];
+
+  return PlanetEng[PlanetKor.indexOf(kor)];
+}
+
+console.log(PlanetName2("목성"));
+// console.log(PlanetName2("목상")); // 없는 행성을 입력하면 ERROR 발생
